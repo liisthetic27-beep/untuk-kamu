@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ruang Kenangan Kita</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --maroon: #630e0e;
+            --soft-pink: #fce4ec;
+            --cream: #fffaf0;
+            --gold: #d4af37;
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--cream);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Halaman Pembuka (Hero) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            background: radial-gradient(circle, var(--soft-pink) 0%, var(--cream) 100%);
+        }
+
+        .envelope-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        h1 { font-family: 'Dancing Script', cursive; color: var(--maroon); font-size: 2.5rem; margin-bottom: 10px; }
+        
+        .btn-open {
+            background-color: var(--maroon);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(99, 14, 14, 0.3);
+            margin-top: 20px;
+        }
+
+        /* Konten Cerita */
+        .content-wrapper { display: none; padding: 20px; }
+
+        .story-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease-out;
+            margin-bottom: 60px;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--soft-pink);
+        }
+
+        .story-section.show { opacity: 1; transform: translateY(0); }
+
+        .date { font-weight: bold; color: var(--maroon); font-size: 0.9rem; margin-bottom: 10px; display: block; }
+        
+        h2 { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--maroon); margin-top: 0; }
+
+        /* Surprise Section */
+        .surprise-box {
+            display: none;
+            text-align: center;
+            padding: 60px 25px;
+            background: var(--maroon);
+            color: white;
+            border-radius: 30px 30px 0 0;
+            margin-top: 50px;
+        }
+
+        .heart {
+            font-size: 50px;
+            color: #ff4d4d;
+            animation: beat 0.8s infinite alternate;
+            margin-bottom: 20px;
+        }
+
+        @keyframes beat { to { transform: scale(1.3); } }
+
+        .secret-btn {
+            background: none;
+            border: 1px dashed var(--maroon);
+            color: var(--maroon);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            margin: 40px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero" id="hero">
+        <div class="envelope-icon">✉️</div>
+        <h1>Untuk Sayangku..</h1>
+        <p>Ada sebuah pesan yang cuma bisa dibuka sama kamu hari ini.</p>
+        <button class="btn-open" onclick="unlock()">Buka Perlahan ✨</button>
+    </div>
+
+    <div class="content-wrapper" id="mainContent">
+        
+        <div class="story-section">
+            <span class="date">Awal Semuanya</span>
+            <h2>Waktu Itu...</h2>
+            <p>Inget nggak pas pertama kita ketemu? Aku nggak pernah nyangka kalau orang yang ada di depan aku saat itu bakal jadi alasan aku buat senyum setiap bangun tidur.</p>
+            <p>Dulu kita masih malu-malu, sekarang kalau udah bareng malah nggak tahu malu. Tapi justru itu yang bikin aku nyaman banget.</p>
+        </div>
+
+        <div class="story-section">
+            <span class="date">Hal-Hal Kecil</span>
+            <h2>Satu Hal Tentangmu</h2>
+            <p>Kadang aku suka merhatiin kamu diem-diem. Cara kamu fokus, cara kamu dengerin ceritaku yang nggak penting, sampai cara kamu bikin aku ngerasa jadi orang paling spesial.</p>
+            <p>Makasih ya, udah sabar sama segala tingkah anehku selama ini. Hehe.</p>
+        </div>
+
+        <div class="story-section">
+            <span class="date">Janji Kecil</span>
+            <h2>Terima Kasih</h2>
+            <p>Terima kasih sudah jadi rumah tempat aku pulang. Gak perlu mewah, cukup ada kamu aja udah bikin aku tenang.</p>
+            <p>Scroll terus ke bawah ya, ada satu hal lagi...</p>
+        </div>
+
+        <button class="secret-btn" id="secretBtn" onclick="revealSurprise()">Pencet kalau kamu sayang aku</button>
+
+        <div class="surprise-box" id="surprise">
+            <div class="heart">❤️</div>
+            <h2>Happy Anniversary!</h2>
+            <p>I love you more than words can say.</p>
+            <p style="font-size: 0.9rem; opacity: 0.8;">Sampai ketemu di hari-hari hebat selanjutnya!</p>
+        </div>
+    </div>
+
+    <script>
+        function unlock() {
+            document.getElementById('hero').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+            window.scrollTo(0, 0);
+            checkScroll(); // Jalankan observer
+        }
+
+        function revealSurprise() {
+            const surprise = document.getElementById('surprise');
+            surprise.style.display = 'block';
+            document.getElementById('secretBtn').style.display = 'none';
+            surprise.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Animasi muncul saat scroll
+        function checkScroll() {
+            const sections = document.querySelectorAll('.story-section');
+            const triggerBottom = window.innerHeight * 0.8;
+
+            window.addEventListener('scroll', () => {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    if(sectionTop < triggerBottom) {
+                        section.classList.add('show');
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
